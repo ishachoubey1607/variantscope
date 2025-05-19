@@ -26,6 +26,7 @@ process GRIDSS {
         --threads ${task.cpus} \\
         --jvmheap ${task.memory.toGiga() - 1}g \\
         --otherjvmheap ${task.memory.toGiga() - 1}g \\
+        --labels ${meta.tumor_id},${meta.normal_id} \\
         ${tumorbam} ${normalbam} \\
         -o ${prefix}_gridss.vcf
 
